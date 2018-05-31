@@ -1,5 +1,5 @@
 package Invaders;
 
-public class weakInvader {
+public class weakInvader extends Invader {
 
 }
