@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
+import GameManager.GameManager;
 import Invaders.Invader;
 
 public class Fortress {
@@ -15,10 +16,12 @@ public class Fortress {
 	private boolean canAttack;
 	private int attackPower;
 	private int attackRange;
+	private GameManager controller;
 	
 	
-	public Fortress(double hitpoints, int attackpower, int attackrange) 
+	public Fortress(double hitpoints, int attackpower, int attackrange,GameManager controller) 
 	{
+		this.controller = controller;
 		this.hitPoints = hitpoints;
 		this.attackPower = attackpower;
 		this.attackRange = attackrange;
@@ -48,7 +51,7 @@ public class Fortress {
 	public double takeDamage(Invader invader) 
 	{
 		hitPoints -= (double)invader.getAttackPower();
-		System.out.print(this.getHitPoints() + "\n");
+		System.out.print("Fortress: DEFEND MEEEEEEE! I just took " + invader.getAttackPower() + " damage from an invader." + "I have " + this.getHitPoints() + " hit points left! "  + "\n");
 		return hitPoints;
 	}
 	
