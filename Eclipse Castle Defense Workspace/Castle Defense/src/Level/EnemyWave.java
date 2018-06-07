@@ -32,4 +32,10 @@ public class EnemyWave {
 	public ArrayList<Invader> getInvaders() {
 		return invaders;
 	}
+	
+	public void move() {
+		for(Invader invader : invaders) {
+			invader.move();
+		}
+	}
 }

@@ -3,18 +3,20 @@ package Invaders;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import GameManager.GameManager;
 import Level.Fortress;
 
-public class Invader {
+public class Invader extends JPanel {
 	protected int attackPower = 50;
 	protected int speed = 10;
 	protected int hitPoints = 100;
 	protected boolean isDead = false;
 	protected Timer attackCooldown;
 	protected boolean canAttack;
+	protected boolean isActive;
 	protected int goldvalue = 20;
 	private GameManager controller;
 	
@@ -39,7 +41,9 @@ public class Invader {
 		System.out.print("Invader: AUCH! I took " + attackpower + " damage! My health is now: " + this.getHitPoints() + "\n");
 		if(hitPoints <= 0) {
 			setDead(true);
+			controller.increaseGold(this.goldvalue);
 			System.out.print("Invader: I have been defeated! :((" +  "\n");
+			controller.printPlayerGoldValue();
 		}
 	}
 	
@@ -65,6 +69,10 @@ public class Invader {
 
 	public void setDead(boolean isDead) {
 		this.isDead = isDead;
+	}
+	
+	public void move() {
+		// Move the x coördinate to the left.
 	}
 	
 	

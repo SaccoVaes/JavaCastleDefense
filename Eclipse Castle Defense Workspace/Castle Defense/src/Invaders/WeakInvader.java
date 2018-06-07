@@ -13,14 +13,3 @@ public class WeakInvader extends Invader {
 	}
 	
 }
-
-/*
-	private int attackPower = 50;
-	private int speed = 10;
-	private int hitPoints = 100;
-	private boolean isDead = false;
-	private Timer attackCooldown;
-	private boolean canAttack;
-
-
-*/

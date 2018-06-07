@@ -8,6 +8,5 @@ public class FastInvader extends Invader {
 		super(controller);
 		// TODO Auto-generated constructor stub
 	}
-	
 
 }
