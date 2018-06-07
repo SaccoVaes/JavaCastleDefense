@@ -16,7 +16,7 @@ public class Invader {
 	protected Timer attackCooldown;
 	protected boolean canAttack;
 	protected int goldvalue = 20;
-	private GameManager controller;
+	protected GameManager controller;
 	
 	public Invader(GameManager controller) {
 		this.controller = controller;
