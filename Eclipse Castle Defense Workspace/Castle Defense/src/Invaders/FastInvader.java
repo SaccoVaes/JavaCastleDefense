@@ -29,6 +29,5 @@ public class FastInvader extends Invader {
 //			});
 //		attackCooldown.start();
 	}
-	
 
 }

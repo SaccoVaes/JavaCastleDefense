@@ -11,11 +11,14 @@ public class GameManager {
 	private Fortress fortress;
 	private Road road;
 	private EnemyWave enemies;
+	private EnemyWave activeEnemies;
+	private Player player;
 	
 	public GameManager() {
 		fortress = new Fortress(1000,30,10,this);
 		road = new Road();
 		enemies = new EnemyWave(this);
+		player = new Player();
 		
 	}
 	
@@ -32,7 +35,7 @@ public class GameManager {
 	
 	//Moves all invaders that are active 1 step closer to the fortress
 	public void moveInvaders() {
-		
+		activeEnemies.move();
 	}
 	
 	public void createEnemyWave() {
@@ -40,8 +43,12 @@ public class GameManager {
 		enemies.createInvaders(new WeakInvader(this), 3);
 	}
 	
-	public void increaseGold(Player player,int value) {
+	public void increaseGold(int value) {
 		player.increaseGold(value);
+	}
+	
+	public void printPlayerGoldValue() {
+		System.out.println("Speler heeft : " + player.getGoldvalue() + " gold nu!");
 	}
 	
 			

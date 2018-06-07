@@ -26,6 +26,7 @@ public class WeakInvader extends Invader {
 //			});
 //		attackCooldown.start();
 	}
+<<<<<<< HEAD
 }
 
 /*
@@ -38,3 +39,7 @@ public class WeakInvader extends Invader {
 
 
 */
+=======
+	
+}
+>>>>>>> 8a8f99162b67162b8f5cd89379d44a25d7cd5a81
