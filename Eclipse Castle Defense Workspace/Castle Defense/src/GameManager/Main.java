@@ -1,16 +1,33 @@
 package GameManager;
 
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+
 import Invaders.FastInvader;
 import Invaders.Invader;
 import Invaders.WeakInvader;
+import Level.CastleDefensePanel;
 import Level.Fortress;
-
+/*
+ * TODO Jframe aanmaken
+ * Hoofdpaneel aanmaken met een borderlayout. Hiervan wordt BorderLayout.NORTH gebruikt voor een interfacepaneel en BorderLayout.CENTER gebruikt voor playground.
+ * Aanmaken interfacepaneel
+ * Aanmaken JButton for upgrade Castle en JLabel voor goldvalue weer te geven.
+ * Aanmaken playgroundpaneel
+ * Enemies op het paneel plaatsen (JPanels met images);
+ * Fortress op het paneel plaatsen (JPanels met image?)
+ * Background maken voor het playgroundpaneel (of een backgroundcolor meegeven)
+ * 
+ * 
+ */
 
 // Will extends from JFrame
-public class Main {
+public class Main extends JFrame {
 	public static void main(String[] args) {
 		
-		GameManager controller = new GameManager();
+		CastleDefensePanel panel = new CastleDefensePanel();
+		GameManager controller = new GameManager(panel);
+		
 		Fortress fortress  = new Fortress(1000,30,10,controller);
 		Invader invader1 = new Invader(controller);
 		WeakInvader invader2 = new WeakInvader(controller);
@@ -25,6 +42,17 @@ public class Main {
 		fortress.AttackEnemy(invader1);
 		fortress.AttackEnemy(invader1);
 		fortress.AttackEnemy(invader1);
+		fortress.AttackEnemy(invader2);
+		
+		
+		JFrame frame = new JFrame();
+	    frame.setSize( 600, 400 );
+		frame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+		frame.setTitle( "Project Mastermind Sacco Vaes & Dennis" );
+		frame.setContentPane(new CastleDefensePanel());
+		frame.setVisible(true);
+		frame.setResizable(false);
+		
 	}
 	
 }

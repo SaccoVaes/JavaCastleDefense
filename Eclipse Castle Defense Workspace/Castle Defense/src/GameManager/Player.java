@@ -2,14 +2,14 @@ package GameManager;
 
 public class Player {
 	private String username;
-	private int goldvalue;
-	private int level;
+	private static int goldvalue;
+	private int playerLevel;
 
-	public Player() {
+	public  Player() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void increaseGold(int value) {
+	public static void increaseGold(int value) {
 		goldvalue += value;
 	}
 	

@@ -1,25 +1,27 @@
 package GameManager;
 
+import java.awt.Graphics;
+import java.util.ArrayList;
+
 import Invaders.Invader;
 import Invaders.WeakInvader;
+import Level.CastleDefensePanel;
 import Level.EnemyWave;
 import Level.Fortress;
-import Level.Road;
 
 public class GameManager {
 	private boolean gameOver = false;
 	private Fortress fortress;
-	private Road road;
 	private EnemyWave enemies;
-	private EnemyWave activeEnemies;
+	private ArrayList<Invader> activeEnemies = new ArrayList<Invader>();
 	private Player player;
+	private CastleDefensePanel panel;
 	
-	public GameManager() {
+	public GameManager(CastleDefensePanel panel) {
+		this.panel = panel;
 		fortress = new Fortress(1000,30,10,this);
-		road = new Road();
-		enemies = new EnemyWave(this);
+		enemies = new EnemyWave();
 		player = new Player();
-		
 	}
 	
 	//Checks if is player has lost the game.
@@ -34,8 +36,10 @@ public class GameManager {
 	}
 	
 	//Moves all invaders that are active 1 step closer to the fortress
-	public void moveInvaders() {
-		activeEnemies.move();
+	public void moveInvaders(Graphics g) {
+		for(Invader i : activeEnemies) {
+			i.move(g);
+		}
 	}
 	
 	public void createEnemyWave() {

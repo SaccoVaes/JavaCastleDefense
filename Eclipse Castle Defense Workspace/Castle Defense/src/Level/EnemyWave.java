@@ -1,5 +1,6 @@
 package Level;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 import GameManager.GameManager;
@@ -12,11 +13,9 @@ import Invaders.WeakInvader;
  */
 public class EnemyWave {
 	private ArrayList<Invader> invaders = new ArrayList<Invader>();
-	private GameManager controller;
-	
 
-	public EnemyWave(GameManager controller) {
-		this.controller = controller;
+	public EnemyWave() {
+		
 	}
 	
 	public void createInvaders(Invader invader, int aantal) {
@@ -31,11 +30,5 @@ public class EnemyWave {
 	
 	public ArrayList<Invader> getInvaders() {
 		return invaders;
-	}
-	
-	public void move() {
-		for(Invader invader : invaders) {
-			invader.move();
-		}
 	}
 }
