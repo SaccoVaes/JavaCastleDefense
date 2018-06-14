@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
-import GameManager.GameManager;
+import GameManager.CastleDefenseController;
 import Invaders.Invader;
 
 public class Fortress {
@@ -16,10 +16,10 @@ public class Fortress {
 	private boolean canAttack;
 	private int attackPower;
 	private int attackRange;
-	private GameManager controller;
+	private CastleDefenseController controller;
 	
 	
-	public Fortress(double hitpoints, int attackpower, int attackrange,GameManager controller) 
+	public Fortress(double hitpoints, int attackpower, int attackrange,CastleDefenseController controller) 
 	{
 		this.controller = controller;
 		this.hitPoints = hitpoints;

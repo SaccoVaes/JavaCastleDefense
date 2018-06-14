@@ -13,10 +13,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import GameManager.GameManager;
+import GameManager.CastleDefenseController;
 import Level.Fortress;
 
 public class Invader {
+	protected CastleDefenseController controller;
 	protected int attackPower = 50;
 	protected int speed = 10;
 	protected int hitPoints = 100;
@@ -27,13 +28,12 @@ public class Invader {
 	protected boolean canSpawn;
 	protected boolean isActive;
 	protected int goldvalue = 20;
-	protected GameManager controller;
-	protected ImageIcon image;
-	protected int locationX = 600;
-	protected final int locationY;
+	protected int locationX = 580;
+	protected int locationY;
 	protected BufferedImage imageInvader;
 	
-	public Invader(GameManager controller) {
+
+	public Invader(CastleDefenseController controller) {
 		this.controller = controller;
 		Random rand = new Random();
 		locationY = rand.nextInt(200)+200;
@@ -51,6 +51,7 @@ public class Invader {
 			}
 			});
 		attackCooldown.start();
+		
 		//Invader can spawn every 3 seconds
 		spawnCooldown = new Timer(3000, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -63,6 +64,10 @@ public class Invader {
 	
 	public int getAttackPower() {
 		return attackPower;
+	}
+	
+	public BufferedImage getImageInvader() {
+		return imageInvader;
 	}
 	
 	//Invader takes damage from the fortress
@@ -87,6 +92,14 @@ public class Invader {
 	public int getHitPoints() {
 		return hitPoints;
 	}
+	
+	public int getLocationX() {
+		return locationX;
+	}
+
+	public int getLocationY() {
+		return locationY;
+	}
 
 	//Gets the canAttack boolean value.
 	public boolean attackReady() {
@@ -101,14 +114,8 @@ public class Invader {
 		this.isDead = isDead;
 	}
 	
-	public void spawn(Graphics g) {
-		g.drawImage(imageInvader,locationX,locationX,null);
-		canSpawn = false;
-	}
-	
-	public void move(Graphics g) {
+	public void move() {
 		locationX -= 5;
-		g.drawImage(imageInvader,locationX,locationY,null);
 	}
 	
 	

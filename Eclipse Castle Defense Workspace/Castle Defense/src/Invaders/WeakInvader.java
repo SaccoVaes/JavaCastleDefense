@@ -2,14 +2,16 @@ package Invaders;
 
 import javax.swing.Timer;
 
-import GameManager.GameManager;
+import GameManager.CastleDefenseController;
 import Level.Fortress;
+
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class WeakInvader extends Invader {
 	
-	public WeakInvader(GameManager controller) {
+	public WeakInvader(CastleDefenseController controller) {
 		super(controller);
 		attackPower = 25;
 		speed = 10;

@@ -3,7 +3,7 @@ package Level;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import GameManager.GameManager;
+import GameManager.CastleDefenseController;
 import Invaders.Invader;
 import Invaders.WeakInvader;
 

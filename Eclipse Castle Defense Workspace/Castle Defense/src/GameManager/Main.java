@@ -1,5 +1,7 @@
 package GameManager;
 
+import java.awt.Graphics;
+
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
@@ -26,13 +28,15 @@ public class Main extends JFrame {
 	public static void main(String[] args) {
 		
 		CastleDefensePanel panel = new CastleDefensePanel();
-		GameManager controller = new GameManager(panel);
+		CastleDefenseController controller = new CastleDefenseController(panel);
 		
 		Fortress fortress  = new Fortress(1000,30,10,controller);
 		Invader invader1 = new Invader(controller);
 		WeakInvader invader2 = new WeakInvader(controller);
 		FastInvader invader3 = new FastInvader(controller);
+		Invader invader4 = new Invader(controller);
 		
+		//Testing if fortress and enemy functionalities are working correctly.
 		invader1.Attack(fortress);
 		fortress.AttackEnemy(invader1);
 		fortress.AttackEnemy(invader2);
@@ -44,14 +48,15 @@ public class Main extends JFrame {
 		fortress.AttackEnemy(invader1);
 		fortress.AttackEnemy(invader2);
 		
-		
 		JFrame frame = new JFrame();
 	    frame.setSize( 600, 400 );
 		frame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
-		frame.setTitle( "Project Mastermind Sacco Vaes & Dennis" );
+		frame.setTitle( "Castle Defense Sacco" );
 		frame.setContentPane(new CastleDefensePanel());
 		frame.setVisible(true);
 		frame.setResizable(false);
+		
+		//panel.drawInvader(invader4);
 		
 	}
 	
