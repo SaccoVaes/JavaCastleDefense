@@ -23,20 +23,20 @@ public class Invader {
 	protected int hitPoints = 100;
 	protected boolean isDead = false;
 	protected Timer attackCooldown;
-	protected Timer spawnCooldown;
 	protected boolean canAttack;
 	protected boolean canSpawn;
 	protected boolean isActive;
 	protected int goldvalue = 20;
-	protected int locationX = 580;
+	protected int locationX = 570;
 	protected int locationY;
+	protected int spawnCooldownValue = 2000;
 	protected BufferedImage imageInvader;
 	
 
 	public Invader(CastleDefenseController controller) {
 		this.controller = controller;
 		Random rand = new Random();
-		locationY = rand.nextInt(200)+200;
+		locationY = rand.nextInt(200)+100;
 		
 		try {                
 			imageInvader = ImageIO.read(new File("Invader.png"));
@@ -48,17 +48,10 @@ public class Invader {
 		attackCooldown = new Timer(2000, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				canAttack = true;
+				attackCooldown.restart();
 			}
 			});
 		attackCooldown.start();
-		
-		//Invader can spawn every 3 seconds
-		spawnCooldown = new Timer(3000, new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				canSpawn = true;
-			}
-			});
-		spawnCooldown.start();
 		
 	}
 	
@@ -115,7 +108,14 @@ public class Invader {
 	}
 	
 	public void move() {
+		if(locationX >= 53) {
 		locationX -= 5;
+		}
+		else {
+			if(canAttack) {
+				//attack(myFortress);
+			}
+		}
 	}
 	
 	

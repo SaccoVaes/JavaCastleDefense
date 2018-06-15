@@ -6,20 +6,19 @@ import java.util.ArrayList;
 import Invaders.Invader;
 import Invaders.WeakInvader;
 import Level.CastleDefensePanel;
-import Level.EnemyWave;
+import Level.WaveGenerator;
 import Level.Fortress;
 
 public class CastleDefenseController {
 	private boolean gameOver = false;
 	private Fortress fortress;
-	private EnemyWave enemies;
+	private WaveGenerator enemies;
 	private Player player;
-	private CastleDefensePanel panel;
 	
-	public CastleDefenseController(CastleDefensePanel panel) {
-		this.panel = panel;
+	public CastleDefenseController() {
+
 		fortress = new Fortress(1000,30,10,this);
-		enemies = new EnemyWave();
+		enemies = new WaveGenerator(this);
 		player = new Player();
 	}
 	
@@ -39,7 +38,7 @@ public class CastleDefenseController {
 	}
 	
 	public void increaseGold(int value) {
-		player.increaseGold(value);
+		Player.increaseGold(value);
 	}
 	
 	public void printPlayerGoldValue() {

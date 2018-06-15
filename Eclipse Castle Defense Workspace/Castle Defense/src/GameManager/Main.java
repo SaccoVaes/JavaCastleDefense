@@ -27,8 +27,8 @@ import Level.Fortress;
 public class Main extends JFrame {
 	public static void main(String[] args) {
 		
-		CastleDefensePanel panel = new CastleDefensePanel();
-		CastleDefenseController controller = new CastleDefenseController(panel);
+		CastleDefenseController controller = new CastleDefenseController();
+		CastleDefensePanel panel = new CastleDefensePanel(controller);
 		
 		Fortress fortress  = new Fortress(1000,30,10,controller);
 		Invader invader1 = new Invader(controller);
@@ -52,7 +52,7 @@ public class Main extends JFrame {
 	    frame.setSize( 600, 400 );
 		frame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
 		frame.setTitle( "Castle Defense Sacco" );
-		frame.setContentPane(new CastleDefensePanel());
+		frame.setContentPane(new CastleDefensePanel(controller));
 		frame.setVisible(true);
 		frame.setResizable(false);
 		
